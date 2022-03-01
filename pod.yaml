@@ -1,12 +1,16 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nvidia-l4t-base
+  #name: nvidia-l4t-base
+  name: ndevices
 spec:
   restartPolicy: OnFailure
+  #restartPolicy: Never
   containers:
   - name: nvidia-l4t-base
-    image: "nvcr.io/nvidia/l4t-base:r32.4.2"
+    #image: "nvcr.io/nvidia/l4t-base:r32.4.2"
+    image: mario21ic/ndevices:jetson
     args:
-       - /usr/local/cuda/samples/1_Utilities/deviceQuery/deviceQuery
+       - /usr/local/bin/ndevices
+    #   - /usr/local/cuda/samples/1_Utilities/deviceQuery/deviceQuery
 

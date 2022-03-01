@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: jetson-tf
+spec:
+  restartPolicy: OnFailure
+  containers:
+  - name: nvidia-l4t-ml
+    image: "nvcr.io/nvidia/l4t-ml:r32.4.4-py3"
+    command: [ "/bin/bash", "-c", "--" ]
+    args: [ "while true; do sleep 30; done;" ]
+

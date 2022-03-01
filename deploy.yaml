@@ -1,0 +1,20 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: ndevices-dp
+spec:
+  selector:
+    matchLabels:
+      app: ndevices
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: ndevices
+    spec:
+      restartPolicy: Always
+      containers:
+      - name: ndevices
+        image: mario21ic/ndevices:jetson
+        args:
+          - /usr/local/bin/ndevices
