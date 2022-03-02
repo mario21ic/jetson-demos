@@ -17,3 +17,9 @@ According to this guide https://k3d.io/v5.3.0/usage/advanced/cuda/
 wget https://k3d.io/v5.3.0/usage/advanced/cuda/config.toml.tmpl -O /var/lib/rancher/k3s/agent/etc/containerd/
 ```
 
+Debugging with crictl:
+```
+sudo crictl ps -a
+sudo crictl logs <container-id>
+sudo crictl rm $(sudo crictl ps -a|grep Exited|awk '{print $1}')
+```
