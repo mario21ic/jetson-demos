@@ -1,0 +1,43 @@
+kind: DaemonSet
+apiVersion: apps/v1
+metadata:
+  name: ndevices-dm
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      name: ndevices-app
+  template:
+    metadata:
+      labels:
+        name: ndevices-app
+    spec:
+      #tolerations:
+      #- key: node-role.kubernetes.io/master
+      #  effect: NoSchedule
+      containers:
+      - name: ndevices-app
+        image: mario21ic/ndevices:jetson
+        args:
+          - /usr/local/bin/ndevices
+        #resources:
+        #  limits:
+        #    memory: 200Mi
+        #  requests:
+        #    cpu: 100m
+        #    memory: 200Mi
+        #volumeMounts:
+        #- name: varlog
+        #  mountPath: /var/log
+        #- name: varlibdockercontainers
+        #  mountPath: /var/lib/docker/containers
+        #  readOnly: true
+      #terminationGracePeriodSeconds: 30
+      #volumes:
+      #- name: varlog
+      #  hostPath:
+      #    path: /var/log
+      #- name: varlibdockercontainers
+      #  hostPath:
+      #    path: /var/lib/docker/containers
+
