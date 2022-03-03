@@ -6,7 +6,8 @@ spec:
   selector:
     matchLabels:
       app: ndevices
-  replicas: 2
+  #replicas: 2
+  replicas: 4
   template:
     metadata:
       labels:
@@ -18,3 +19,14 @@ spec:
         image: mario21ic/ndevices:jetson
         args:
           - /usr/local/bin/ndevices
+        resources:
+          requests:
+            cpu: 100m
+            memory: 200Mi
+            nvidia.com/gpu: 1 # requesting 1 GPUs
+            #nvidia.com/gpu: 2 # requesting 2 GPUs
+          limits:
+            cpu: 200m
+            memory: 500Mi
+            nvidia.com/gpu: 1
+            #nvidia.com/gpu: 2

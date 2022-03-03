@@ -13,4 +13,14 @@ spec:
     args:
        - /usr/local/bin/ndevices
     #   - /usr/local/cuda/samples/1_Utilities/deviceQuery/deviceQuery
+    resources:
+      requests:
+        cpu: 100m
+        memory: 200Mi
+        #nvidia.com/gpu: 1 # requesting 1 GPUs
+        nvidia.com/gpu: 2 # requesting 2 GPUs
+      limits:
+        cpu: 200m
+        memory: 500Mi
+        #nvidia.com/gpu: 2
 

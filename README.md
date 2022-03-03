@@ -23,3 +23,9 @@ sudo crictl ps -a
 sudo crictl logs <container-id>
 sudo crictl rm $(sudo crictl ps -a|grep Exited|awk '{print $1}')
 ```
+
+TODO:
+- Use gpu as resource quota 
+https://scalingpythonml.com/2021/02/22/tagging-arm-nvidia-jetson-machines-with-gpus-in-my-k3s-cluster.html
+https://blogs.windriver.com/wind_river_blog/2020/06/nvidia-k8s-device-plugin-for-wind-river-linux/
+
